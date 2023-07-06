@@ -1,0 +1,23 @@
+type Category{
+    id: ID!
+    name: String!
+    slug: String!
+    parentId: ID
+    subCategory: [String]
+}
+
+input CategoryInput{
+    name: String!
+    slug: String!
+    parentId: ID
+}
+
+extend type Query{
+    GetCategories: [Category!]
+}
+
+extend type Mutation {
+    AddCategory(categoryRequest: CategoryInput): Category!
+    EditCategory(id: ID!, categoryRequest: CategoryInput): Category!
+    DeleteCategory(id: ID!): Boolean
+}

@@ -1,14 +1,7 @@
 type Query{
-    TestQuery: [Test]
+    TestQuery: String!
 }
 
-type Mutation{
-    AddTest(name: String!): Test!
-    EditTest(name: String!): Test!
-    DeleteTest(name: String!): [Test!]
-}
-
-
-type Test{
-    name: String!
+type Mutation {
+    TestMutation: String!
 }

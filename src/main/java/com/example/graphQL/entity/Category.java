@@ -1,6 +1,10 @@
 package com.example.graphQL.entity;
 
 import lombok.*;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 import java.util.UUID;
@@ -10,9 +14,14 @@ import java.util.UUID;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@Document("Category")
 public class Category {
-    private UUID id;
+    @Id
+    @Field("_id")
+    private ObjectId id;
     private String name;
     private String slug;
-    private List<Category> subCategory;
+    private UUID parentId;
+    private Boolean isDelete;
+    private List<String> subCategory;
 }
